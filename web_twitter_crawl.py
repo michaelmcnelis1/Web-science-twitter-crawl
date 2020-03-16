@@ -47,7 +47,7 @@ def search_for_hashtags(consumer_key, consumer_secret, access_token, access_toke
 
         w = csv.writer(file)###
         for tweet in tweepy.Cursor(api.search, q=hashtag_phrase+' -filter:retweets AND -filter:replies AND -filter:quotes AND -filter:links AND -filter:mentions', 
-                                   lang="en", tweet_mode='extended').items(1500):
+                                   lang="en", tweet_mode='extended').items(1500): #edit this line to .items(100) to reduce the amount of fetched tweets
             #filter so at most 3 hastags - keep tweets clean and avoid ambiguity between categories
             hashtags = 0
             mentions = 0
@@ -74,7 +74,7 @@ def search_for_emojis(consumer_key, consumer_secret, access_token, access_token_
 
         w = csv.writer(file)###
         for tweet in tweepy.Cursor(api.search, q=hashtag_phrase+' -filter:retweets AND -filter:replies AND -filter:quotes AND -filter:links AND -filter:mentions', 
-                                   lang="en", tweet_mode='extended').items(1500):
+                                   lang="en", tweet_mode='extended').items(1500): #edit this line to .items(100) to reduce the amount of fetched tweets
             #filters so there are at most 3 hashtags and at most 3 emojis
             hashtags = 0
             mentions = 0
