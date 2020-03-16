@@ -17,6 +17,7 @@ import pandas as pd
 import regex #pip
 import numpy as np
 import random
+import os
 
 #create a function to remove contractions and other gramatical annomalies
 def decontracted(phrase):
@@ -191,11 +192,13 @@ def clean_data_negative(fname,phrases):  ###
 for i in range(0,3):
     clean_data_positive(fname[i],phrases[i])
     remove_duplicates(fname[i])
+    os.remove('%s.csv' % (fname[i]))
+    
 #add clean data for negative emotions and remove duplicates   
 for i in range(3,6):
     clean_data_negative(fname[i],phrases[i])
     remove_duplicates(fname[i])
-
+    os.remove('%s.csv' % (fname[i]))
  
 #generate the random sequence of numbers to decide which tweets are used in crowdsourcing 
 tweet_no=[]
